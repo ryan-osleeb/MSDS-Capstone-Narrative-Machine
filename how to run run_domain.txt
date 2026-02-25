@@ -1,0 +1,12 @@
+# Full run for a domain
+python run_domain.py --domain aitech
+python run_domain.py --domain electricvehicles
+
+# Only re-run visualizations (skips scraping + embedding)
+python run_domain.py --domain aitech --steps viz,ext_viz
+
+# See what's available
+python run_domain.py --list
+
+# Preview config without running
+python run_domain.py --domain aitech --dry-run

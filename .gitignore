@@ -1,0 +1,19 @@
+# Environment variables (never commit secrets)
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+narrative_machine/
+
+# Generated output (PNGs, caches, models — run the pipeline to regenerate)
+output/
+
+# Database (derived artifact, too large for git)
+narrative_machine.db
+gdelt_events.csv
+
+# macOS
+.DS_Store
