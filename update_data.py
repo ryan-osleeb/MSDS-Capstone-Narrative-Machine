@@ -94,12 +94,40 @@ DOMAIN_SCRAPER_CONFIG = {
             "output_file": str(PROJECT_ROOT / "domains/aitech/historical_news_tech.csv"),
         },
     },
+    "retailinvestor": {
+        "nyt": {
+            # Short query — the NYT API silently returns docs=null when a query
+            # chains many quoted phrases with OR.  Unquoted words and individual
+            # quoted phrases work reliably.  The bulk scraper
+            # (domains/retailinvestor/nyt_retailinvestor_scraper.py) runs multiple
+            # sequential sub-queries to populate the initial dataset; this entry
+            # handles incremental updates going forward.
+            "query": (
+                'GameStop OR Robinhood OR WallStreetBets OR '
+                '"retail investor" OR "short squeeze" OR "meme stock" OR '
+                '"day trading" OR "index fund"'
+            ),
+            "output_file": str(PROJECT_ROOT / "domains/retailinvestor/nyt_retailinvestor.csv"),
+        },
+        "gdelt": {
+            # Kept short — GDELT returns a plain-text error (not JSON) when the
+            # query exceeds ~250 chars, which the scraper previously mistook for
+            # a request exception and silently returned 0 articles.
+            "query": (
+                'GameStop OR Robinhood OR WallStreetBets OR '
+                '"retail investor" OR "short squeeze" OR "meme stock" OR '
+                '"day trading" OR "index fund"'
+            ),
+            "output_file": str(PROJECT_ROOT / "domains/retailinvestor/historical_retailinvestor.csv"),
+        },
+    },
 }
 
 # Earliest start date to use when a domain has NO data in the DB yet
 DOMAIN_EARLIEST_START = {
     "electricvehicles": datetime(2015, 1, 1),
     "aitech":           datetime(2020, 1, 1),
+    "retailinvestor":   datetime(2019, 1, 1),
 }
 
 

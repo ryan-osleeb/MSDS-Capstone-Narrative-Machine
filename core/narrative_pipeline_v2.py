@@ -159,10 +159,20 @@ class NarrativePipeline:
                            'autonomous', 'self-driving', 'crypto', 'blockchain',
                            'trump', 'tariff', 'china', 'export'])
         elif 'retail' in name_lower or 'invest' in name_lower:
-            keywords.update(['invest', 'stock', 'market', 'trading', 'trader',
-                           'retail', 'wallstreetbets', 'reddit', 'gamestop',
-                           'meme', 'robinhood', 'hedge', 'short', 'squeeze',
-                           'portfolio', 'etf', 'crypto', 'bitcoin'])
+            keywords.update([
+                # Retail-specific platforms and culture
+                'investor', 'investors', 'retail', 'robinhood', 'wallstreetbets',
+                'reddit', 'gamestop', 'meme', 'squeeze',
+                # Investment vehicles retail investors use
+                'etf', 'portfolio', 'stock', 'stocks', 'index fund', 'passive',
+                # Crypto (major retail narrative)
+                'crypto', 'bitcoin', 'cryptocurrency', 'ethereum',
+                # Market conditions retail investors track
+                'market crash', 'bear market', 'bull market', 'recession',
+                'inflation', 'interest rate', 'federal reserve',
+                # Trading behavior
+                'trading', 'day trading', 'options',
+            ])
         
         # From narrative display names
         for name in self.config.display_names:

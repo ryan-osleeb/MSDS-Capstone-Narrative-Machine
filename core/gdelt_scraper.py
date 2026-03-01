@@ -168,9 +168,18 @@ class GDELTScraper:
                 if resp.status_code != 200:
                     log.warning("GDELT API returned %s", resp.status_code)
                     return []
+                # GDELT returns a 200 with a plain-text error string when the
+                # query is too long or too short — detect this before parsing JSON.
+                content_type = resp.headers.get("content-type", "")
+                if "json" not in content_type:
+                    msg = resp.text.strip()[:120]
+                    print(f"  ⚠ GDELT non-JSON response (query may be too long): {msg}")
+                    log.warning("GDELT plain-text error response: %s", msg)
+                    return []
                 data = resp.json()
                 return data.get("articles", []) or []
             except Exception as exc:
+                print(f"  ⚠ GDELT request error: {exc}")
                 log.warning("GDELT API error: %s", exc)
                 return []
         log.warning("GDELT API still rate-limited after retry — skipping window")
@@ -269,7 +278,10 @@ class GDELTScraper:
     @staticmethod
     def _should_skip(url: str) -> bool:
         try:
-            domain = urlparse(url).netloc.lower().lstrip("www.")
+            # Use netloc directly — the substring check handles both www. and bare domains.
+            # lstrip("www.") was a bug: it strips individual chars, so "www.wsj.com"
+            # became "sj.com" and wsj.com was never skipped.
+            domain = urlparse(url).netloc.lower()
             return any(skip in domain for skip in SKIP_DOMAINS)
         except Exception:
             return False

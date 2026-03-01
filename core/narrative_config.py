@@ -339,11 +339,11 @@ RETAIL_CONFIG = NarrativeConfig(
     narratives={
         'Memes/Degen': 'memes_degen',
         'Inflation': 'inflation',
-        'Politics/Geopolitics': 'politics_geo',
         'Fed/Monetary': 'fed_monetary',
         'AI Revolution': 'ai_revolution',
         'Crypto': 'crypto',
         'Passive vs Active': 'passive_active',
+        'Market is Rigged': 'market_rigged',
     },
     
     prototypes={
@@ -361,18 +361,9 @@ RETAIL_CONFIG = NarrativeConfig(
             "CPI increases show persistent inflation affecting cost of living and savings",
             "High prices and inflation concerns drive investors to seek inflation hedges",
             "Wage growth lags behind price increases as inflation reduces real income",
-            "Inflation debate between transitory and persistent views affects market outlook",
-            "Investors worry about inflation eating away at their retirement savings",
-            "The cost of everything from groceries to housing continues to rise with inflation",
-        ],
-        'politics_geo': [
-            "US election results and political policies impact market sentiment and regulation",
-            "China tensions and geopolitical conflicts affect global trade and supply chains",
-            "Trump tariffs and trade war policies create uncertainty for investors",
-            "SEC regulatory actions and government policies shape investment landscape",
-            "Geopolitical risks from Ukraine Russia conflict influence market volatility",
-            "Political gridlock in Congress affects economic policy and market expectations",
-            "International sanctions and trade restrictions reshape global investment flows",
+            "Surging home prices and rents make housing unaffordable for ordinary Americans",
+            "Rising costs of groceries, rent, and gas squeeze household budgets to the limit",
+            "Financial desperation leads people to take risks in the market hoping for a big payoff",
         ],
         'fed_monetary': [
             "Federal Reserve rate hikes aim to control inflation and cool the economy",
@@ -410,16 +401,25 @@ RETAIL_CONFIG = NarrativeConfig(
             "Active managers struggle to justify fees as passive alternatives grow",
             "The rise of passive investing changes market dynamics and price discovery",
         ],
+        'market_rigged': [
+            "Robinhood halted GameStop trading to protect hedge funds at the expense of retail investors",
+            "Payment for order flow allows market makers to front-run retail trades unfairly",
+            "Dark pools and high-frequency trading give institutions an unfair advantage over ordinary investors",
+            "Market makers profit by seeing retail order flow before executing it, skimming value from every trade",
+            "The SEC fails to protect small investors while Wall Street operates by different rules",
+            "Short ladder attacks and naked short selling are used to manipulate stock prices illegally",
+            "Retail investors are the exit liquidity for institutional players who move markets against them",
+        ],
     },
     
     colors={
         'Memes/Degen': '#FF1744',
         'Inflation': '#FF6D00',
-        'Politics/Geopolitics': '#00E5FF',
         'Fed/Monetary': '#2196F3',
         'AI Revolution': '#AA00FF',
         'Crypto': '#00C853',
         'Passive vs Active': '#FF4081',
+        'Market is Rigged': '#795548',
     },
     
     default_threshold=0.30,
