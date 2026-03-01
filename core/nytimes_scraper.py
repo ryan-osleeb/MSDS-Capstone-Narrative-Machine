@@ -27,8 +27,10 @@ NYT_SEARCH_URL = "https://api.nytimes.com/svc/search/v2/articlesearch.json"
 # For large date ranges we slide a window forward.
 MAX_PAGES_PER_WINDOW = 10
 RESULTS_PER_PAGE = 10
-# Minimum days per sliding window — narrow windows avoid hitting the 10-page cap
-WINDOW_DAYS = 30
+# Days per sliding window. 90-day (quarterly) windows balance request efficiency
+# against the 10-page/100-article cap per window. A 2019–2026 date range
+# produces ~28 windows per sub-query vs ~85 with monthly windows.
+WINDOW_DAYS = 90
 
 # Polite delay between requests (NYT allows 5 req/s but 500/day)
 REQUEST_DELAY = 0.25
