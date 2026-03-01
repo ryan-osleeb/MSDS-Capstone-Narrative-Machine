@@ -12,6 +12,7 @@ Narrative Machine is a text analytics platform for detecting, analyzing, and vis
 |--------|----------|------------|---------|
 | Electric Vehicles | 9,928 | 2015–2024 | NYT, GDELT |
 | AI & Technology | 2,322 | 2020–2024 | NYT, GDELT |
+| Retail Investor | 4,673 | 2019–2026 | NYT, GDELT (Wayback Machine) |
 
 ---
 
@@ -102,6 +103,7 @@ narrative_machine_v3/
 ├── domains/
 │   ├── electricvehicles/            # Domain manifest + raw and unified CSVs
 │   ├── aitech/                      # Domain manifest + raw and unified CSVs
+│   ├── retailinvestor/              # Domain manifest + raw and unified CSVs
 │   └── template/                    # Starter template for new domains
 ├── output/                          # Generated PNGs, reports, caches (not committed)
 ├── run_domain.py                    # Main pipeline entry point
