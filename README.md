@@ -10,8 +10,8 @@ Narrative Machine is a text analytics platform for detecting, analyzing, and vis
 
 | Domain | Articles | Date Range | Sources |
 |--------|----------|------------|---------|
-| Electric Vehicles | 9,928 | 2015–2024 | NYT, GDELT |
-| AI & Technology | 2,322 | 2020–2024 | NYT, GDELT |
+| Electric Vehicles | 6,700 | 2015–2026 | NYT, GDELT |
+| AI & Technology | 1,214 | 2020–2026 | NYT, GDELT |
 | Retail Investor | 4,673 | 2019–2026 | NYT, GDELT (Wayback Machine) |
 
 ---
